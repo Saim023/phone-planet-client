@@ -8,7 +8,6 @@ const Home = () => {
         <div>
             <HomeCarousel></HomeCarousel>
             <Banner></Banner>
-            <Categories></Categories>
         </div>
     );
 };

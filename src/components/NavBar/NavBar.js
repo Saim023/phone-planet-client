@@ -7,13 +7,23 @@ const NavBar = () => {
     const menuItems =
         <React.Fragment>
             <li><Link to='/'>Home</Link></li>
-            <li><Link to='/categories'>Categories</Link></li>
+            <li tabIndex={0}>
+                <a>
+                    Categories
+                    <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
+                </a>
+                <ul className="p-2 z-10 visible bg-green-100">
+                    <li><Link to='/iphone'>Iphone</Link></li>
+                    <li><Link to='/oneplus'>Oneplus</Link></li>
+                    <li><Link to='/xiaomi'>Xiaomi</Link></li>
+                </ul>
+            </li>
             <li><Link to='/login'>Login</Link></li>
 
         </React.Fragment>
 
     return (
-        <div className="navbar bg-gray-100">
+        <div className="navbar bg-green-100">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
