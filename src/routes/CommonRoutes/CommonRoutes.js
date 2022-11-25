@@ -20,15 +20,18 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/iphone',
-                element: <Iphone></Iphone>
+                element: <Iphone></Iphone>,
+                loader: () => fetch('http://localhost:5000/iphone')
             },
             {
                 path: '/oneplus',
-                element: <Oneplus></Oneplus>
+                element: <Oneplus></Oneplus>,
+                loader: () => fetch('http://localhost:5000/oneplus')
             },
             {
                 path: '/xiaomi',
-                element: <Xiaomi></Xiaomi>
+                element: <Xiaomi></Xiaomi>,
+                loader: () => fetch('http://localhost:5000/xiaomi')
             },
             {
                 path: '/login',

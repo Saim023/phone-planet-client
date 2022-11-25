@@ -1,0 +1,44 @@
+[
+	{
+		"categoryId": 1,
+		"name": "One Plus 9",
+		"originalPrice": 580,
+		"resalePrice": 400,
+		"location": "Comilla",
+		"image": "https://i.ibb.co/N2WjGz8/oneplus-nord-1.jpg",
+		"used": "7 months",
+		"condition": "good",
+		"description": "OnePlus 9 Android smartphone. Announced Mar 2021. Features 6.55″ display, Snapdragon 888 5G chipset, 4500 mAh battery, 256 GB storage, 12 GB RAM",
+		"phone": "017222222",
+		"postedTime": "April 4, 2022",
+		"sellersName": "Ripon Mondol"
+	},
+	{
+		"categoryId": 2,
+		"name": "One Plus 10 pro",
+		"originalPrice": 450,
+		"resalePrice": 400,
+		"location": "Khulna",
+		"image": "https://i.ibb.co/ftsLx8B/oneplus.jpg",
+		"used": "3 months",
+		"condition": "excellent",
+		"description": "OnePlus 10 Pro ; Resolution, 1440 x 3216 pixels, 20:9 ratio (~525 ppi density) ; Protection, Corning Gorilla Glass Victus",
+		"phone": "0182222222",
+		"postedTime": "August 19, 2022",
+		"sellersName": "Mehedi Hasan"
+	},
+	{
+		"categoryId": 3,
+		"name": "One Plus 12 pro",
+		"originalPrice": 500,
+		"resalePrice": 390,
+		"location": "Barishal",
+		"image": "https://i.ibb.co/9GbHTRv/oneplus-8.jpg",
+		"used": "2 months",
+		"condition": "excellent",
+		"description": "The OnePlus 12 Pro packs a 6.7-inch Fluid AMOLED display that comes with 16 million colour reproductions. The display comes with a resolution of 3200 x 1440 pixels and brings a 524ppi pixel density. For performance, the OnePlus 12 Pro is powered by the latest Qualcomm Snapdragon 8 Gen 1 processor.",
+		"phone": "019111111",
+		"postedTime": "September 7, 2022",
+		"sellersName": "Saif Hossain"
+	}
+]
