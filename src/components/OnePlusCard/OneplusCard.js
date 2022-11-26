@@ -1,7 +1,7 @@
 import React from 'react';
 import PrimaryButton from '../PrimaryButton/PrimaryButton';
 
-const OneplusCard = ({ one }) => {
+const OneplusCard = ({ one, setOnep }) => {
 
     const { image, name, condition, description, location, originalPrice, resalePrice, used, sellersName, phone, postedTime } = one;
 
@@ -20,7 +20,7 @@ const OneplusCard = ({ one }) => {
                 <p>Location: {location}</p>
                 <p>Phone: {phone}</p>
             </div>
-            <PrimaryButton>Book Now</PrimaryButton>
+            <label onClick={() => setOnep(one)} htmlFor="booking" className="btn btn-primary bg-gradient-to-r from-primary to-secondary text-white">Book Now</label>
         </div>
     );
 };

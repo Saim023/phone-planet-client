@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layouts/Main/Main";
-import Categories from "../../pages/Categories/Categories";
 import Home from "../../pages/Home/Home";
 import Iphone from "../../pages/Iphone/Iphone";
 import Login from "../../pages/Login/Login";
 import Oneplus from "../../pages/Oneplus/Oneplus";
 import SignUp from "../../pages/SignUp/SignUp";
 import Xiaomi from "../../pages/Xiaomi/Xiaomi";
+import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 
 
 
@@ -21,18 +21,15 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/iphone',
-                element: <Iphone></Iphone>,
-                // loader: () => fetch('http://localhost:5000/iphone')
+                element: <PrivateRoute><Iphone></Iphone></PrivateRoute>,
             },
             {
                 path: '/oneplus',
-                element: <Oneplus></Oneplus>,
-                loader: () => fetch('http://localhost:5000/oneplus')
+                element: <PrivateRoute><Oneplus></Oneplus></PrivateRoute>,
             },
             {
                 path: '/xiaomi',
-                element: <Xiaomi></Xiaomi>,
-                loader: () => fetch('http://localhost:5000/xiaomi')
+                element: <PrivateRoute><Xiaomi></Xiaomi></PrivateRoute>,
             },
             {
                 path: '/login',

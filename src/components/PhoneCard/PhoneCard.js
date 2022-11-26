@@ -3,7 +3,7 @@ import BookingModal from '../BookingModal/BookingModal';
 
 const PhoneCard = ({ iphn, isLoading, refetch, setApple }) => {
 
-    const { _id, image, name, condition, description, location, originalPrice, resalePrice, used, sellersName, phone, postedTime, } = iphn;
+    const { image, name, condition, description, location, originalPrice, resalePrice, used, sellersName, phone, postedTime, } = iphn;
     console.log(name)
 
     return (
