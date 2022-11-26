@@ -1,11 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
+import DashboardLayout from "../../layouts/DashboardLayout/DashboardLayout";
 import Main from "../../layouts/Main/Main";
+import AddProducts from "../../pages/AddProducts/AddProducts";
 import Home from "../../pages/Home/Home";
 import Iphone from "../../pages/Iphone/Iphone";
 import Login from "../../pages/Login/Login";
+import MyOrders from "../../pages/MyOrders/MyOrders";
 import Oneplus from "../../pages/Oneplus/Oneplus";
 import SignUp from "../../pages/SignUp/SignUp";
 import Xiaomi from "../../pages/Xiaomi/Xiaomi";
+import BuyersRoute from "../BuyersRoute/BuyersRoute";
 import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 
 
@@ -39,6 +43,20 @@ export const router = createBrowserRouter([
                 path: '/signup',
                 element: <SignUp></SignUp>
             },
+        ]
+    },
+    {
+        path: '/dashboard',
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        children: [
+            {
+                path: '/dashboard/my-orders',
+                element: <BuyersRoute><MyOrders></MyOrders></BuyersRoute>
+            },
+            {
+                path: '/dashboard/add-products',
+                element: <PrivateRoute><AddProducts></AddProducts></PrivateRoute>
+            }
         ]
     }
 ]);
