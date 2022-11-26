@@ -1,9 +1,10 @@
 import React from 'react';
-import PrimaryButton from '../PrimaryButton/PrimaryButton';
+import BookingModal from '../BookingModal/BookingModal';
 
-const PhoneCard = ({ iphn }) => {
+const PhoneCard = ({ iphn, isLoading, refetch, setApple }) => {
 
-    const { image, name, condition, description, location, originalPrice, resalePrice, used, sellersName, phone, postedTime } = iphn;
+    const { _id, image, name, condition, description, location, originalPrice, resalePrice, used, sellersName, phone, postedTime, } = iphn;
+    console.log(name)
 
     return (
         <div className="card bg-base-100 shadow-xl">
@@ -20,7 +21,8 @@ const PhoneCard = ({ iphn }) => {
                 <p>Location: {location}</p>
                 <p>Phone: {phone}</p>
             </div>
-            <PrimaryButton>Book Now</PrimaryButton>
+
+            <label onClick={() => setApple(iphn)} htmlFor="booking" className="btn btn-primary bg-gradient-to-r from-primary to-secondary text-white">Book Now</label>
         </div>
     );
 };

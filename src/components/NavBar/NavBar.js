@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo-removebg-preview.png'
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const NavBar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                toast.success('User logout successfully!')
+            })
+            .catch(error => console.error(error))
+    }
 
     const menuItems =
         <React.Fragment>
@@ -18,7 +30,18 @@ const NavBar = () => {
                     <li><Link to='/xiaomi'>Xiaomi</Link></li>
                 </ul>
             </li>
-            <li><Link to='/login'>Login</Link></li>
+            {
+                user?.uid ?
+                    <>
+                        <li><Link>{user?.displayName}</Link></li>
+                        <li><button onClick={handleLogOut}>Logout</button></li>
+                    </>
+                    :
+                    <>
+                        <li><Link to='/login'>Login</Link></li>
+                        <li><Link to='/signup'>Sign Up</Link></li>
+                    </>
+            }
 
         </React.Fragment>
 

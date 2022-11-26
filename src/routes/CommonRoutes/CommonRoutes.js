@@ -5,6 +5,7 @@ import Home from "../../pages/Home/Home";
 import Iphone from "../../pages/Iphone/Iphone";
 import Login from "../../pages/Login/Login";
 import Oneplus from "../../pages/Oneplus/Oneplus";
+import SignUp from "../../pages/SignUp/SignUp";
 import Xiaomi from "../../pages/Xiaomi/Xiaomi";
 
 
@@ -21,7 +22,7 @@ export const router = createBrowserRouter([
             {
                 path: '/iphone',
                 element: <Iphone></Iphone>,
-                loader: () => fetch('http://localhost:5000/iphone')
+                // loader: () => fetch('http://localhost:5000/iphone')
             },
             {
                 path: '/oneplus',
@@ -36,7 +37,11 @@ export const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
-            }
+            },
+            {
+                path: '/signup',
+                element: <SignUp></SignUp>
+            },
         ]
     }
 ]);
