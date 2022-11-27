@@ -1,9 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import Spinner from '../../components/Spinner/Spinner';
 
 const MyProducts = () => {
+    const navigate = useNavigate();
 
     const { data: myProducts = [], refetch, isLoading } = useQuery({
         queryKey: ['myProducts'],
@@ -13,7 +15,7 @@ const MyProducts = () => {
             return data
         }
 
-    })
+    });
 
     const handleDeleteProduct = (my) => {
         // console.log(my)
@@ -32,6 +34,32 @@ const MyProducts = () => {
                     console.log(my.product)
                 }
             })
+    };
+
+    const handleAdvertise = (my) => {
+
+
+        fetch(`http://localhost:5000/users/seller/advertised`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+
+            },
+            body: JSON.stringify(my)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    toast.success('Product Advertised Successfully!')
+                    navigate('/')
+                }
+                else {
+                    toast.error("Product advertising failed")
+                }
+            })
+
     }
 
     return (
@@ -47,6 +75,8 @@ const MyProducts = () => {
                             <th>Condition</th>
                             <th>Purchase Year</th>
                             <th>Price</th>
+                            <th>Availability</th>
+                            <th>Advertisement</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -60,6 +90,12 @@ const MyProducts = () => {
                                     <td>{my.condition}</td>
                                     <td>{my.purchaseDate}</td>
                                     <td className='text-red-600'>${my.price}</td>
+                                    <td>
+                                        <button className="btn btn-outline btn-xs btn-success">Available</button>
+                                    </td>
+                                    <td>
+                                        <button onClick={() => handleAdvertise(my)} className="btn btn-outline btn-xs btn-primary">Advertise</button>
+                                    </td>
                                     <td>
                                         <button onClick={() => handleDeleteProduct(my)} className="btn btn-outline btn-xs btn-accent">Delete</button>
                                     </td>
