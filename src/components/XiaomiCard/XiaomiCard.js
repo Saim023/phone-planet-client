@@ -1,8 +1,12 @@
-import React from 'react';
-import PrimaryButton from '../PrimaryButton/PrimaryButton';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import useSeller from '../../hooks/useSeller';
+import bluetic from '../../assets/logo/bluetic.png';
 
 const XiaomiCard = ({ mi, setXiao }) => {
 
+    const { user } = useContext(AuthContext);
+    const [isSeller] = useSeller(user.email);
     const { image, name, condition, description, location, originalPrice, resalePrice, used, sellersName, phone, postedTime } = mi;
 
     return (
@@ -16,7 +20,10 @@ const XiaomiCard = ({ mi, setXiao }) => {
                 <p>Posted: {postedTime}</p>
                 <p>Original Price: <span className='text-red-600'>${originalPrice}</span></p>
                 <p>Resale Price: <span className=' text-red-600'>${resalePrice}</span></p>
-                <p>Seller Name: {sellersName}</p>
+                <div className=' flex items-start gap-3'>
+                    <div><p>Seller Name: {sellersName}</p></div>
+                    {isSeller && <><span><img src={bluetic} alt="" /></span></>}
+                </div>
                 <p>Location: {location}</p>
                 <p>Phone: {phone}</p>
             </div>

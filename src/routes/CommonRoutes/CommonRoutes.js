@@ -4,13 +4,19 @@ import Main from "../../layouts/Main/Main";
 import AddProducts from "../../pages/AddProducts/AddProducts";
 import MyProducts from "../../pages/AddProducts/MyProducts";
 import Advertised from "../../pages/Advertised/Advertised";
+import AllBuyers from "../../pages/AllBuyers/AllBuyers";
+import AllSellers from "../../pages/AllSellers/AllSellers";
 import Home from "../../pages/Home/Home";
 import Iphone from "../../pages/Iphone/Iphone";
 import Login from "../../pages/Login/Login";
 import MyOrders from "../../pages/MyOrders/MyOrders";
+import MyWishList from "../../pages/MyWishList/MyWishList";
 import Oneplus from "../../pages/Oneplus/Oneplus";
+import PageNotFound from "../../pages/PageNotFound/PageNotFound";
+import ReportedItems from "../../pages/ReportedItems/ReportedItems";
 import SignUp from "../../pages/SignUp/SignUp";
 import Xiaomi from "../../pages/Xiaomi/Xiaomi";
+import AdminRoute from "../AdminRoute/AdminRoute";
 import BuyersRoute from "../BuyersRoute/BuyersRoute";
 import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 
@@ -49,6 +55,10 @@ export const router = createBrowserRouter([
                 path: '/signup',
                 element: <SignUp></SignUp>
             },
+            {
+                path: '*',
+                element: <PageNotFound></PageNotFound>
+            },
         ]
     },
     {
@@ -66,6 +76,22 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/my-products',
                 element: <PrivateRoute><MyProducts></MyProducts></PrivateRoute>
+            },
+            {
+                path: '/dashboard/my-wish',
+                element: <PrivateRoute><MyWishList></MyWishList></PrivateRoute>
+            },
+            {
+                path: '/dashboard/all-sellers',
+                element: <AdminRoute><AllSellers></AllSellers></AdminRoute>
+            },
+            {
+                path: '/dashboard/all-buyers',
+                element: <AdminRoute><AllBuyers></AllBuyers></AdminRoute>
+            },
+            {
+                path: '/dashboard/reported-items',
+                element: <AdminRoute><ReportedItems></ReportedItems></AdminRoute>
             },
         ]
     }

@@ -1,7 +1,11 @@
-import React from 'react';
-import BookingModal from '../BookingModal/BookingModal';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import useSeller from '../../hooks/useSeller';
+import bluetic from '../../assets/logo/bluetic.png';
 
 const PhoneCard = ({ iphn, isLoading, refetch, setApple }) => {
+    const { user } = useContext(AuthContext);
+    const [isSeller] = useSeller(user.email);
 
     const { image, name, condition, description, location, originalPrice, resalePrice, used, sellersName, phone, postedTime, } = iphn;
     console.log(name)
@@ -17,7 +21,10 @@ const PhoneCard = ({ iphn, isLoading, refetch, setApple }) => {
                 <p>Posted: {postedTime}</p>
                 <p>Original Price: <span className='text-red-600'>${originalPrice}</span></p>
                 <p>Resale Price: <span className=' text-red-600'>${resalePrice}</span></p>
-                <p>Seller Name: {sellersName}</p>
+                <div className=' flex items-start gap-3'>
+                    <div><p>Seller Name: {sellersName}</p></div>
+                    {isSeller && <><span><img src={bluetic} alt="" /></span></>}
+                </div>
                 <p>Location: {location}</p>
                 <p>Phone: {phone}</p>
             </div>
