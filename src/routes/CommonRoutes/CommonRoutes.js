@@ -6,6 +6,7 @@ import MyProducts from "../../pages/AddProducts/MyProducts";
 import Advertised from "../../pages/Advertised/Advertised";
 import AllBuyers from "../../pages/AllBuyers/AllBuyers";
 import AllSellers from "../../pages/AllSellers/AllSellers";
+import Blogs from "../../pages/Blogs/Blogs";
 import Home from "../../pages/Home/Home";
 import Iphone from "../../pages/Iphone/Iphone";
 import Login from "../../pages/Login/Login";
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
             {
                 path: '/advertised',
                 element: <Advertised></Advertised>,
+            },
+            {
+                path: '/blogs',
+                element: <Blogs></Blogs>,
             },
             {
                 path: '/login',
