@@ -14,7 +14,7 @@ const AllBuyers = () => {
     })
 
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto mt-6">
             <table className="table w-full">
                 <thead>
                     <tr>
