@@ -3,6 +3,7 @@ import DashboardLayout from "../../layouts/DashboardLayout/DashboardLayout";
 import Main from "../../layouts/Main/Main";
 import AddProducts from "../../pages/AddProducts/AddProducts";
 import MyProducts from "../../pages/AddProducts/MyProducts";
+import Advertised from "../../pages/Advertised/Advertised";
 import Home from "../../pages/Home/Home";
 import Iphone from "../../pages/Iphone/Iphone";
 import Login from "../../pages/Login/Login";
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
             {
                 path: '/xiaomi',
                 element: <PrivateRoute><Xiaomi></Xiaomi></PrivateRoute>,
+            },
+            {
+                path: '/advertised',
+                element: <Advertised></Advertised>,
             },
             {
                 path: '/login',

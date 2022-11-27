@@ -91,7 +91,7 @@ const MyProducts = () => {
                                     <td>{my.purchaseDate}</td>
                                     <td className='text-red-600'>${my.price}</td>
                                     <td>
-                                        <button className="btn btn-outline btn-xs btn-success">Available</button>
+                                        <button className="btn btn-outline btn-xs text-green-600 btn-disabled">Available</button>
                                     </td>
                                     <td>
                                         <button onClick={() => handleAdvertise(my)} className="btn btn-outline btn-xs btn-primary">Advertise</button>
