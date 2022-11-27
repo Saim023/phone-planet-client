@@ -1,6 +1,7 @@
 import { async } from '@firebase/util';
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const AllBuyers = () => {
 
@@ -11,7 +12,24 @@ const AllBuyers = () => {
             const data = await res.json()
             return data;
         }
-    })
+    });
+
+    const handleDeleteBuyer = (buyer) => {
+        console.log(buyer)
+        fetch(`http://localhost:5000/admin/all-buyers/${buyer._id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    refetch();
+                    toast.success(`${buyer.email} deleted successfully!`)
+                }
+            })
+    }
 
     return (
         <div className="overflow-x-auto mt-6">
@@ -35,7 +53,7 @@ const AllBuyers = () => {
                             <td>{buyer.email}</td>
                             <td>{buyer.role}</td>
                             <td>
-                                <button className="btn btn-outline btn-accent btn-xs">Delete</button>
+                                <button onClick={() => handleDeleteBuyer(buyer)} className="btn btn-outline btn-accent btn-xs">Delete</button>
                             </td>
                         </tr>)
                     }
